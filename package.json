@@ -1,0 +1,38 @@
+{
+  "name": "recurlybot",
+  "version": "0.1.0",
+  "description": "Slack bot to notify new Recurly subscriptions",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/eslint ./ && mocha $(find ./test -name *_spec.js)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AudienseCo/recurlybot.git"
+  },
+  "keywords": [
+    "slack",
+    "recurly",
+    "bot"
+  ],
+  "author": "Audiense",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AudienseCo/recurlybot/issues"
+  },
+  "homepage": "https://github.com/AudienseCo/recurlybot#readme",
+  "dependencies": {
+    "@slack/webhook": "^5.0.0",
+    "lodash": "^4.17.11",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "should": "^8.3.0",
+    "sinon": "^7.3.2"
+  }
+}
