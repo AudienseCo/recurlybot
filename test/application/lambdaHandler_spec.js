@@ -13,8 +13,10 @@ describe('lambdaHandler Application', () => {
     const config = createConfigDummy();
     const lambdaHandler = createLambdaHandler(notifyNewSubscriptionSpy, config);
     const event = {
-      identity: {
-        sourceIp: ''
+      requestContext: {
+        identity: {
+          sourceIp: ''
+        }
       },
       body: newSubscriptionFixture
     };
@@ -32,8 +34,10 @@ describe('lambdaHandler Application', () => {
     const config = createConfigDummy();
     const lambdaHandler = createLambdaHandler(notifyNewSubscriptionSpy, config);
     const event = {
-      identity: {
-        sourceIp: '50.18.192.89'
+      requestContext: {
+        identity: {
+          sourceIp: '50.18.192.89'
+        }
       },
       body: newSubscriptionFixture
     };

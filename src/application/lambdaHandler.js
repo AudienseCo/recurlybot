@@ -13,7 +13,7 @@ module.exports = (notifyNewSubscription, config) => {
   };
 
   function isFromWhitelistedIP(event) {
-    const ip = get(event, 'identity.sourceIp');
+    const ip = get(event, 'requestContext.identity.sourceIp');
     return includes(config.ipWhitelist, ip);
   }
 };
