@@ -1,4 +1,4 @@
-const { intersection, get } = require('lodash');
+const { includes, get } = require('lodash');
 
 module.exports = (notifyNewSubscription, config) => {
   return async (event) => {
@@ -13,7 +13,7 @@ module.exports = (notifyNewSubscription, config) => {
   };
 
   function isFromWhitelistedIP(event) {
-    const ips = get(event, 'multiValueHeaders["X-Forwarded-For"]', []);
-    return intersection(config.ipWhitelist, ips).length > 0;
+    const ip = get(event, 'identity.sourceIp');
+    return includes(config.ipWhitelist, ip);
   }
 };

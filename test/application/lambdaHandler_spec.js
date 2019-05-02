@@ -13,8 +13,8 @@ describe('lambdaHandler Application', () => {
     const config = createConfigDummy();
     const lambdaHandler = createLambdaHandler(notifyNewSubscriptionSpy, config);
     const event = {
-      multiValueHeaders: {
-        'X-Forwarded-For': []
+      identity: {
+        sourceIp: ''
       },
       body: newSubscriptionFixture
     };
@@ -32,8 +32,8 @@ describe('lambdaHandler Application', () => {
     const config = createConfigDummy();
     const lambdaHandler = createLambdaHandler(notifyNewSubscriptionSpy, config);
     const event = {
-      multiValueHeaders: {
-        'X-Forwarded-For': ['50.18.192.89']
+      identity: {
+        sourceIp: '50.18.192.89'
       },
       body: newSubscriptionFixture
     };
