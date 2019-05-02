@@ -1,6 +1,6 @@
 {
   "name": "recurlybot",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Slack bot to notify new Recurly subscriptions",
   "main": "index.js",
   "scripts": {
