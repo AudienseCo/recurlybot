@@ -10,6 +10,9 @@ describe('Recurly API wrapper', () => {
     it('should have the "getSubscription" method', () => {
       recurlyClient.getSubscription.should.be.a.Function();
     });
+    it('should have the "getNotes" method', () => {
+      recurlyClient.getNotes.should.be.a.Function();
+    });
   });
 
   context('Behaviour', async () => {
@@ -32,10 +35,31 @@ describe('Recurly API wrapper', () => {
     });
   });
 
+  it('should get the account notes', async () => {
+    const notesFixture = {
+      data: {
+        notes: [{
+          message: ''
+        }]
+      }
+    };
+    const recurly = createRecurlyDummy(notesFixture);
+    const recurlyClient = createRecurlyClient(recurly);
+    const spy = sinon.spy(recurly.accounts, 'notes');
+
+    const accountId = '123';
+    const notes = await recurlyClient.getNotes(accountId);
+    notes.should.be.eql(notesFixture);
+    spy.calledWith(accountId).should.be.ok();
+  });
+
   function createRecurlyDummy(res) {
     return {
       subscriptions: {
         get: () => new Promise((resolve) => { resolve(res || {}); })
+      },
+      accounts: {
+        notes: () => new Promise((resolve) => { resolve(res || {}); })
       }
     };
   }

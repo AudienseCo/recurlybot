@@ -42,4 +42,19 @@ describe('newSubscription Template', () => {
     msg.attachments[0].color.should.be.eql('good');
     should.exist(msg.attachments[0].image_url);
   });
+
+  it('amount grater than 25 color blue (good) and gif from account notes', () => {
+    const subscription = {
+      accountId: '1',
+      customerName: 'name',
+      companyName: 'company',
+      planName: 'plan A',
+      amount: 40,
+      currency: 'USD',
+      gif: 'set.gif'
+    };
+    const msg = newSubscriptionTemplate(subscription);
+    msg.attachments[0].color.should.be.eql('good');
+    msg.attachments[0].image_url.should.be.eql('set.gif');
+  });
 });

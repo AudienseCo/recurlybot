@@ -21,9 +21,18 @@ describe('notifyNewSubscription Action', () => {
     const slack = createSlackStub();
     const spy = sinon.spy(slack, 'send');
     const recurly = createRecurlyStub({
-      data: {
-        subscription: {
-          currency: 'EUR'
+      subscriptionRes: {
+        data: {
+          subscription: {
+            currency: 'EUR'
+          }
+        }
+      },
+      notesRes: {
+        data: {
+          notes: [{
+            message: 'https://media.giphy.com/media/uyWTOgNGGWfks/giphy.gif'
+          }]
         }
       }
     });
@@ -37,10 +46,11 @@ describe('notifyNewSubscription Action', () => {
         companyName: 'Company, Inc.',
         customerName: 'Verena Example',
         email: 'verena@example.com',
-        accountId: '1',
+        accountId: '5b88ec3b66d75421c4e12899',
         planName: 'Bronze Plan',
         amount: 170,
-        currency: 'EUR'
+        currency: 'EUR',
+        gif: 'https://media.giphy.com/media/uyWTOgNGGWfks/giphy.gif'
       })
     };
     spy.calledWith(channel, expectedMsg).should.be.ok();
@@ -48,7 +58,7 @@ describe('notifyNewSubscription Action', () => {
 
   function createNotifyNewSubscriptionWithStubs({ slack, recurly, template }) {
     const slackStub = slack || createSlackStub();
-    const recurlyStub = recurly || createRecurlyStub();
+    const recurlyStub = recurly || createRecurlyStub({});
     const templateStub = template || createTemplateStub();
     return createNotifyNewSubscription(slackStub, recurlyStub, templateStub);
   }
@@ -59,9 +69,10 @@ describe('notifyNewSubscription Action', () => {
     };
   }
 
-  function createRecurlyStub(res) {
+  function createRecurlyStub({ subscriptionRes, notesRes }) {
     return {
-      getSubscription: () => new Promise((resolve) => { resolve(res || {}); })
+      getSubscription: () => new Promise((resolve) => { resolve(subscriptionRes || {}); }),
+      getNotes: () => new Promise((resolve) => { resolve(notesRes || {}); })
     };
   }
 

@@ -1,4 +1,4 @@
-const { get } = require('lodash');
+const { get, find } = require('lodash');
 const util = require('util');
 const parseString = util.promisify(require('xml2js').parseString);
 
@@ -17,6 +17,7 @@ module.exports = (slack, recurly, template) => {
     if (!subscriptionNotification) return;
 
     const id = get(subscriptionNotification, 'subscription[0].uuid[0]');
+    const accountId = get(subscriptionNotification, 'account[0].account_code[0]');
     const companyName = get(subscriptionNotification, 'account[0].company_name[0]._')
       || get(subscriptionNotification, 'account[0].company_name[0]');
     const firstName = get(subscriptionNotification, 'account[0].first_name[0]');
@@ -25,16 +26,23 @@ module.exports = (slack, recurly, template) => {
 
 
     const subscriptionDetails = await recurly.getSubscription(id);
-
+    const gif = await getGifFromAccountNotes(accountId);
     return {
       id,
       companyName,
       customerName: `${firstName} ${lastName}`,
       email: get(subscriptionNotification, 'account[0].email[0]'),
-      accountId: get(subscriptionNotification, 'account[0].account_code[0]'),
+      accountId,
       planName: get(subscriptionNotification, 'subscription[0].plan[0].name[0]'),
       amount: amountInCents / 100,
-      currency: get(subscriptionDetails, 'data.subscription.currency')
+      currency: get(subscriptionDetails, 'data.subscription.currency'),
+      gif
     };
+  }
+
+  async function getGifFromAccountNotes(accountId) {
+    const accountNotes = await recurly.getNotes(accountId);
+    const gifNote = find(accountNotes.data.notes, note => /.gif/.test(note.message));
+    return gifNote ? gifNote.message : null;
   }
 };

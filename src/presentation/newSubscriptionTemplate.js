@@ -7,10 +7,11 @@ module.exports = ({
   companyName,
   planName,
   amount,
-  currency
+  currency,
+  gif
 }) => {
   const color = amount > 25 ? 'good' : '#ddddd';
-  const image = amount > 25 ? getMoneyGif() : null;
+  const image = amount > 25 ? getMoneyGif(gif) : null;
   const attachment = {
     title: `New ${planName} subscription`,
     title_link: config.presentation.profileURL.replace('{accountId}', accountId),
@@ -45,7 +46,8 @@ module.exports = ({
   };
 };
 
-function getMoneyGif() {
+function getMoneyGif(gif) {
+  if (gif) return gif;
   const GIFs = [
     'https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif',
     'https://media.giphy.com/media/xTiTnqUxyWbsAXq7Ju/giphy.gif',

@@ -7,5 +7,8 @@ describe('Recurly builder', () => {
     it('should have the "getSubscription" method', () => {
       recurly.getSubscription.should.be.a.Function();
     });
+    it('should have the "getNotes" method', () => {
+      recurly.getNotes.should.be.a.Function();
+    });
   });
 });
