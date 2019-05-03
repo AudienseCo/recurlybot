@@ -9,7 +9,8 @@ describe('newSubscription Template', () => {
       customerName: 'name',
       companyName: 'company',
       planName: 'plan A',
-      amount: 5
+      amount: 5,
+      currency: 'USD'
     };
     const msg = newSubscriptionTemplate(subscription);
     msg.should.be.eql({
@@ -20,7 +21,7 @@ describe('newSubscription Template', () => {
           { title: 'Customer Name', value: 'name', short: true },
           { title: 'Company', value: 'company', short: true },
           { title: 'Plan', value: 'plan A', short: true },
-          { title: 'Amount', value: '$5', short: true }
+          { title: 'Amount', value: '5 USD', short: true }
         ],
         color: '#ddddd',
         image_url: null
@@ -34,7 +35,8 @@ describe('newSubscription Template', () => {
       customerName: 'name',
       companyName: 'company',
       planName: 'plan A',
-      amount: 40
+      amount: 40,
+      currency: 'USD'
     };
     const msg = newSubscriptionTemplate(subscription);
     msg.attachments[0].color.should.be.eql('good');

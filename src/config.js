@@ -3,6 +3,13 @@ module.exports = {
     webhookUrl: process.env.SLACK_URL || '',
     channel: process.env.SLACK_CHANNEL || 'general'
   },
+  recurly: {
+    apiKey: process.env.RECURLY_APIKEY || '',
+    subdomain: process.env.RECURLY_SUBDOMAIN || '',
+    env: process.env.RECURLY_ENV || '',
+    debug: false,
+    version: 2.17
+  },
   presentation: {
     profileURL: process.env.PROFILE_URL || 'https://recurly.com/accounts/{accountId}',
   },

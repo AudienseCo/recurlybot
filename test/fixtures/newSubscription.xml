@@ -13,7 +13,7 @@
       <plan_code>bronze</plan_code>
       <name>Bronze Plan</name>
     </plan>
-    <uuid>8047cb4fd5f874b14d713d785436ebd3</uuid>
+    <uuid>4bd3e28b63f88fae827cd140b9968094</uuid>
     <state>active</state>
     <quantity type="integer">2</quantity>
     <total_amount_in_cents type="integer">17000</total_amount_in_cents>

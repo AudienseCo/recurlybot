@@ -6,7 +6,8 @@ module.exports = ({
   customerName,
   companyName,
   planName,
-  amount
+  amount,
+  currency
 }) => {
   const color = amount > 25 ? 'good' : '#ddddd';
   const image = amount > 25 ? getMoneyGif() : null;
@@ -31,7 +32,7 @@ module.exports = ({
       },
       {
         title: 'Amount',
-        value: `$${amount}`,
+        value: `${amount} ${currency}`,
         short: true
       }
     ],
@@ -50,7 +51,14 @@ function getMoneyGif() {
     'https://media.giphy.com/media/xTiTnqUxyWbsAXq7Ju/giphy.gif',
     'https://media.giphy.com/media/ND6xkVPaj8tHO/giphy.gif',
     'https://media.giphy.com/media/9HQRIttS5C4Za/giphy.gif',
-    'https://media.giphy.com/media/3osxYamKD88c6pXdfO/giphy.gif'
+    'https://media.giphy.com/media/3osxYamKD88c6pXdfO/giphy.gif',
+    'https://media.giphy.com/media/67ThRZlYBvibtdF9JH/giphy.gif',
+    'https://media.giphy.com/media/LCdPNT81vlv3y/giphy.gif',
+    'https://media.giphy.com/media/1k4kRTdvAZPTMaxpTm/giphy.gif',
+    'https://media.giphy.com/media/k4iuvHyjOVtzq/giphy.gif',
+    'https://media.giphy.com/media/lptjRBxFKCJmFoibP3/giphy.gif',
+    'https://media.giphy.com/media/xT8qAY7e9If38xkrIY/giphy.gif',
+    'https://media.giphy.com/media/yoJC2GnSClbPOkV0eA/giphy.gif'
   ];
   return sample(GIFs);
 }
