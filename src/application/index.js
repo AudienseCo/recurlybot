@@ -3,5 +3,6 @@ const { notifyNewSubscription } = require('../actions');
 const lambdaHandler = require('./lambdaHandler')(notifyNewSubscription, config);
 
 module.exports = {
-  lambdaHandler
+  lambdaHandler,
+  notifyNewSubscription
 };
