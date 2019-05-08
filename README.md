@@ -16,14 +16,14 @@ Edit [src/config.js](https://github.com/AudienseCo/recurlybot/blob/master/src/co
   - `RECURLY_ENV`: Recuring environment, use `staging` for staging or leave it empty for production.
 
 ## Install
-```
+```bash
 npm install recurlybot --save
 ```
 
 ## Usage
 
 ### Developing your own Recurly webhooks handler 
-```
+```js
 const { notifyNewSubscription } = require('recurlybot');
 
 const channel = 'new-customers';
