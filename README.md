@@ -3,8 +3,11 @@ Slack bot to notify new Recurly subscriptions.
 
 ![](http://g.recordit.co/MDZuZBIOAe.gif)
 
+## Why
+One of the things that are hard to replicate in companies with distributed teams is living the vibe of closing deals. This integration makes it easier to celebrate company success with a sense of fun and humor.
+
 ## What's this?
-An function that given a POST request from [Recurly webhooks](https://docs.recurly.com/docs/webhooks) publishes a message in a the configured Slack channel via a [Slack Incomming Webhook](https://api.slack.com/incoming-webhooks)
+A function that given a POST request from [Recurly webhooks](https://docs.recurly.com/docs/webhooks) publishes a message in a the configured Slack channel via a [Slack Incomming Webhook](https://api.slack.com/incoming-webhooks)
 
 ### Configuration
 Edit [src/config.js](https://github.com/AudienseCo/recurlybot/blob/master/src/config.js) or overwrite it using environment variables:
