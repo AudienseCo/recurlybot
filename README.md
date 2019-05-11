@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/AudienseCo/recurlybot.svg?branch=master&style=flat-square)](https://travis-ci.org/AudienseCo/recurlybot)
+
 # Recurlybot
 Slack bot to notify new Recurly subscriptions.
 
