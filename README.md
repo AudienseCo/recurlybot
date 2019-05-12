@@ -9,7 +9,13 @@ Slack bot to notify new Recurly subscriptions.
 One of the things that are hard to replicate in companies with distributed teams is living the vibe of closing deals. This integration makes it easier to celebrate company success with a sense of fun and humor.
 
 ## What's this?
-A function that given a POST request from [Recurly webhooks](https://docs.recurly.com/docs/webhooks) publishes a message in a the configured Slack channel via a [Slack Incomming Webhook](https://api.slack.com/incoming-webhooks)
+A function that given a POST request from [Recurly webhooks](https://docs.recurly.com/docs/webhooks) publishes a message in a the configured Slack channel via a [Slack Incomming Webhook](https://api.slack.com/incoming-webhooks).
+
+## Features
+- Notify new subscriptions in a configured Slack channel (plan name, customer name, company and subscription amount).
+- Link notifications to a configured internal CRM. By default it links to the Recurly account page.
+- Send a ramdon gif related to party or money.
+- If you want to surprise the team by adding a custom gif you can setup the gif that will appear when an account closes the deal by [adding a note to the Recurly account](https://docs.recurly.com/docs/accounts#section-account-notes).
 
 ### Configuration
 Edit [src/config.js](https://github.com/AudienseCo/recurlybot/blob/master/src/config.js) or overwrite it using environment variables:
