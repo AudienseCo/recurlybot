@@ -60,7 +60,10 @@ function getMoneyGif(gif) {
     'https://media.giphy.com/media/k4iuvHyjOVtzq/giphy.gif',
     'https://media.giphy.com/media/lptjRBxFKCJmFoibP3/giphy.gif',
     'https://media.giphy.com/media/xT8qAY7e9If38xkrIY/giphy.gif',
-    'https://media.giphy.com/media/yoJC2GnSClbPOkV0eA/giphy.gif'
+    'https://media.giphy.com/media/yoJC2GnSClbPOkV0eA/giphy.gif',
+    'https://media.giphy.com/media/MdG0ZaSpScdl8VaJks/giphy.gif',
+    'https://media.giphy.com/media/hTf8S01Rn6SOFFGBYc/giphy.gif',
+    'https://media.giphy.com/media/lN9BJEfmy1huhxiCEw/giphy.gif'
   ];
   return sample(GIFs);
 }
