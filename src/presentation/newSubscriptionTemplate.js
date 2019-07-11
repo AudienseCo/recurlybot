@@ -65,14 +65,11 @@ function getMoneyGif(amount) {
     'https://media.giphy.com/media/MdG0ZaSpScdl8VaJks/giphy.gif',
     'https://media.giphy.com/media/hTf8S01Rn6SOFFGBYc/giphy.gif',
     'https://media.giphy.com/media/lN9BJEfmy1huhxiCEw/giphy.gif',
-    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/charli-xcx-boys-moments-5-1501166124.gif?crop=1xw:1xh;center,top&resize=480:*'
-  ];
-  const LEVEL3_GIFS = [
-    'http://dwigif.com/view/O42mUTl'
+    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/charli-xcx-boys-moments-5-1501166124.gif?crop=1xw:1xh;center,top&resize=480:*',
+    'http://g.recordit.co/0NE6rQjyu3.gif'
   ];
 
   if (amount > 25 && amount < 300) return sample(LEVEL1_GIFS);
-  if (amount >= 300 && amount < 500) return sample(LEVEL2_GIFS);
-  if (amount >= 500) return sample(LEVEL3_GIFS);
+  if (amount >= 300) return sample(LEVEL2_GIFS);
   return null;
 }
